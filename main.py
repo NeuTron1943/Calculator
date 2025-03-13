@@ -43,4 +43,14 @@ for child in mainFrame.winfo_children():
 aEntry.focus()
 root.bind("<Return>", calculate)
 
+
+l = ttk.Label(mainFrame, text="Testing")
+l.grid(column=2, row=3)
+l.bind('<Enter>', lambda e: l.configure(text="Moved mouse inside"))
+l.bind('<Leave>', lambda e: l.configure(text="Moved mouse outside"))
+l.bind('<ButtonPress-1>', lambda e: l.configure(text="Clicked left mouse"))
+l.bind('<3>', lambda e: l.configure(text="Clicked right mouse"))
+l.bind('<Double-1>', lambda e: l.configure(text="Double clicked"))
+l.bind('<B3-Motion>', lambda e: l.configure(text=f'Right drag to ({e.x}, {e.y})'))
+
 root.mainloop()
